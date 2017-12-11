@@ -8,6 +8,7 @@ if( !in_array( $group_id, CUser::GetUserGroup( $user_id) ) )
 	LocalRedirect( '/' );
 ?>
 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -343,15 +344,14 @@ so that field name can be used to control the front-end logic.</p>
 
 
 
-<pre class="prettyprint"><code class=" hljs avrasm"><span class="hljs-label">http://146.148.124.180/api/user/?mode=login&amp;input={USERNAME_OR_EMAIL}&amp;password={PASSWORD}</code></pre>
-
+<pre class="prettyprint"><code class=" hljs avrasm"><span class="hljs-label">http://146.148.124.180/api/user/</code></pre>
 
 
 <h4 id="method-6">Method</h4>
 
 
 
-<pre class="prettyprint"><code class=" hljs vbnet"><span class="hljs-keyword">GET</span></code></pre>
+<pre class="prettyprint"><code class=" hljs vbnet"><span class="hljs-keyword">POST</span></code></pre>
 
 
 
@@ -373,7 +373,17 @@ JWT access token will be returned which must be used in header for authorised re
 
 
 
-<pre class="prettyprint"><code class=" hljs avrasm"><span class="hljs-label">http://146.148.124.180/api/user/?mode=login&amp;input={PUT_YOUR_USERNAME_OR_EMAIL_HERE}&amp;password={PUT_YOUR_PASSWORD_HERE}</code></pre>
+<pre class="prettyprint"><code class=" hljs avrasm"><span class="hljs-label">http://146.148.124.180/api/user/</code>
+
+<span class="hljs-label">HEADER:</span>
+<span class="hljs-label">Authorization:</span> {LOGIN_ACCESS_TOKEN}
+
+<span class="hljs-label">DATA:</span>
+{
+    <span class="hljs-string">"mode"</span> : <span class="hljs-string">"login"</span>,
+    <span class="hljs-string">"input"</span> : <span class="hljs-string">"themetest@awok.co"</span>,
+    <span class="hljs-string">"password"</span> : <span class="hljs-string">"test123"</span>
+}</code></pre>
 
 <hr>
 
